@@ -8,14 +8,14 @@ function Box({ children, title, ...props }) {
     <Container {...props}>
       {
         title && (
-          <Title>
+          <Title className='mb-10'>
             {title}
           </Title>
         )
       }
-      {/* <Content> */}
+      <Content>
         {children}
-      {/* </Content> */}
+      </Content>
     </Container>
   );
 }

@@ -30,4 +30,5 @@ export const Title = styled.div`
 
 export const Content = styled.div`
   padding: 0 10px 10px 10px;
+  height: 85%;
 `;
