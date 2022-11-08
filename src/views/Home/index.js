@@ -10,7 +10,7 @@ function Home() {
     <Container>
       <Row>
         <Col cols={12}>
-          <T1 className='mt-10'>
+          <T1>
             Dashboard
           </T1>
         </Col>

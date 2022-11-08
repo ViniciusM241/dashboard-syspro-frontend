@@ -42,8 +42,8 @@ function CountEstablishments ({ dataset, ...props }) {
       {
         label: 'ECs',
         data: dataset?.data,
-        borderColor: 'rgb(255, 99, 132)',
-        backgroundColor: 'rgba(255, 99, 132, 0.5)',
+        borderColor: '#5CC8FF',
+        backgroundColor: '#5CC8FF',
       },
     ],
   };

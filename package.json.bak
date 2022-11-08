@@ -30,7 +30,7 @@
   },
   "scripts": {
     "start": "react-app-rewired start",
-    "build": "SET PUBLIC_URL=http://hhh.sysprocard.com.br/servicos/cadastro-pessoa-fisica && react-app-rewired build",
+    "build": "SET PUBLIC_URL=https://online.sysprocard.com.br/servicos/cadastro-pessoa-fisica && react-app-rewired build",
     "commit": "git-cz",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

@@ -4,7 +4,7 @@ import colors from "~/utils/colors";
 export const Container = styled.main`
   width: 100%;
   min-height: 100vh;
-  padding: 20px 27px;
+  padding: 10px 27px;
 
   border-top-left-radius: 50px;
   background-color: ${colors.FOREGROUND};

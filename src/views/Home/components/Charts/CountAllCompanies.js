@@ -23,7 +23,7 @@ const options = {
   indexAxis: 'y',
   elements: {
     bar: {
-      borderWidth: 2,
+      borderWidth: 0,
     },
   },
   responsive: true,
@@ -47,8 +47,7 @@ function CountAllCompanies ({ dataset, ...props }) {
       {
         label: 'Empresas',
         data: dataset?.data,
-        borderColor: 'rgb(255, 99, 132)',
-        backgroundColor: 'rgba(255, 99, 132, 0.5)',
+        backgroundColor: ['#A8E10C', '#FFDB15', '#FF5765', '#8A6FDF', '#151E3F', '#D36060' , '#87E752', '#F9AB55', '#5CC8FF'],
       },
     ],
   };

@@ -21,7 +21,7 @@ function Dashboard() {
   }, []);
 
   return (
-    <Wrapper className='mt-20'>
+    <Wrapper className='mt-10'>
       <Box title='Total de empresas' col={1} row={2}>
         <Chart type='countAllCompanies' dataset={reports.countAllCompanies} />
       </Box>

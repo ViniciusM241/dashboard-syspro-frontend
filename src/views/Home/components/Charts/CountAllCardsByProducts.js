@@ -7,11 +7,12 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 const options = {
   responsive: true,
   maintainAspectRatio: false,
+  borderWidth: 0,
   plugins: {
     legend: {
       display: true,
       position: 'bottom',
-      align: 'start',
+      align: 'center',
     },
     title: {
       display: false,
@@ -26,8 +27,7 @@ function CountAllCardsByProducts ({ dataset, ...props }) {
       {
         label: 'Empresas',
         data: dataset?.data,
-        borderColor: 'rgb(255, 99, 132)',
-        backgroundColor: 'rgba(255, 99, 132, 0.5)',
+        backgroundColor: ['#A8E10C', '#FFDB15', '#8A6FDF', '#151E3F', '#D36060' , '#87E752', '#F9AB55', '#5CC8FF', '#FEC9F1'],
       },
     ],
   };
