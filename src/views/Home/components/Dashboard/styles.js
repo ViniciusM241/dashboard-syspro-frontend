@@ -4,8 +4,8 @@ export const Wrapper = styled.div`
   width: 100%;
   max-height: 750px;
 
-  overflow-y: scroll;
-  overflow-x: visible;
+  /* overflow-y: scroll;
+  overflow-x: visible; */
 
   display: grid;
   grid-template-columns: repeat(3, 1fr);

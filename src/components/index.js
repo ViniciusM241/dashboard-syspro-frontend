@@ -15,3 +15,4 @@ export const Line = React.lazy(() => import('./Line'));
 export const Box = React.lazy(() => import('./Box'));
 export const Radio = React.lazy(() => import('./Radio'));
 export const Check = React.lazy(() => import('./Check'));
+export const List = React.lazy(() => import('./List'));

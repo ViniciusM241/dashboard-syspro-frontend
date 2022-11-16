@@ -17,7 +17,7 @@ function CustomRouter () {
 
   return (
     <Suspense fallback={<SuspenseLoading />}>
-      <BrowserRouter>
+      <BrowserRouter basename="/dashboard">
         <Container>
           <Routes>
             <Route

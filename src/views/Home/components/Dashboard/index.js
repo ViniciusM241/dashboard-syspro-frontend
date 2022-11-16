@@ -34,6 +34,12 @@ function Dashboard() {
       <Box title='Total de produtos' col={1} row={1}>
         <Chart type='countAllCardsByProducts' dataset={reports.countAllCardsByProducts} />
       </Box>
+      <Box title='Empresas positivando' col={1} row={2}>
+        <Chart type='listActiveCompanies' dataset={reports.listActiveCompanies} />
+      </Box>
+      <Box title='Empresas sem positivação' col={1} row={2}>
+        <Chart type='listLessActiveCompanies' dataset={reports.listLessActiveCompanies} />
+      </Box>
     </Wrapper>
   );
 }
