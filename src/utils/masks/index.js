@@ -30,6 +30,7 @@ export function formatDate(date) {
 }
 
 export function currency(value) {
+  value = value.toFixed(2);
   value = String(value);
   value = value.replace(/\D/g, '');
   value = (value / 100).toFixed(2) + '';

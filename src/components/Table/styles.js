@@ -6,6 +6,9 @@ export const Container = styled.div`
   scrollbar-width: none;
   width: 100%;
 
+  border-radius: 5px;
+  box-shadow: 0px 1px 5px rgba(0, 0, 0, .25);
+
   &::-webkit-scrollbar {
     display: none;
   }

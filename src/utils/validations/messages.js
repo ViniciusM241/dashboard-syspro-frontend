@@ -9,6 +9,7 @@ const messages = {
     "any.required": 'O campo {#label} deve ser preenchido',
     "date.base": 'O campo {#label} deve possuir uma data válida',
     "number.base": 'O campo {#label} deve ser preenchido',
+    "array.min": 'Deve selecionar pelo menos um {#label}',
 };
 
 export default messages;

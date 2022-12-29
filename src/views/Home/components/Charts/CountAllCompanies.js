@@ -9,6 +9,7 @@ import {
   Legend,
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
+import ChartDataLabels from "chartjs-plugin-datalabels";
 
 ChartJS.register(
   CategoryScale,
@@ -16,7 +17,8 @@ ChartJS.register(
   BarElement,
   Title,
   Tooltip,
-  Legend
+  Legend,
+  ChartDataLabels,
 );
 
 const options = {
@@ -34,6 +36,16 @@ const options = {
     },
     title: {
       display: false,
+    },
+    datalabels: {
+      color: 'black',
+      font: {
+        weight: 'bold'
+      },
+      formatter: Math.round,
+      anchor: "end",
+      offset: -35,
+      align: "start",
     },
   },
   aspectRatio: 1,

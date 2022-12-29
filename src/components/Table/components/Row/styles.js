@@ -10,9 +10,9 @@ export const Tr = styled.tr`
     background-color: ${colors.GRAY};
   }
 
-  &:nth-child(2n + 1) {
+  /* &:nth-child(2n + 1) {
     background-color: ${colors.GRAY};
-  }
+  } */
 `;
 
 export const Td = styled.td`

@@ -32,6 +32,20 @@ const options = {
     title: {
       display: false,
     },
+    datalabels: {
+      backgroundColor: function(context) {
+        return context.dataset.backgroundColor;
+      },
+      borderRadius: 4,
+      color: 'white',
+      font: {
+        weight: 'bold'
+      },
+      formatter: Math.round,
+      padding: 6,
+      align: 'end',
+      anchor: 'end',
+    },
   },
 };
 

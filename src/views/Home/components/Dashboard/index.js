@@ -22,10 +22,10 @@ function Dashboard() {
 
   return (
     <Wrapper className='mt-10'>
-      <Box title='Total de empresas' col={1} row={2}>
+      <Box title='Empresas cadastradas' col={1} row={2}>
         <Chart type='countAllCompanies' dataset={reports.countAllCompanies} />
       </Box>
-      <Box title='Estabelecimentos' col={2} row={1}>
+      <Box title='Estabelecimentos cadastrados por mês' col={2} row={1}>
         <Chart type='countEstablishments' dataset={reports.countEstablishments} />
       </Box>
       <Box title='Novas empresas' col={1} row={1}>

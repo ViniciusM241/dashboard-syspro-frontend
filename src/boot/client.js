@@ -23,7 +23,7 @@ client.interceptors.response.use((response) => response,
     if (err?.response?.status === 401) {
       alert('Login necessário');
       removeToken();
-      window.location.href = '/';
+      window.location.href = '/dashboard';
     }
 
     return err?.response;

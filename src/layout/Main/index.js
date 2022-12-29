@@ -5,6 +5,7 @@ import useBreakpoints from "~/hooks/useBreakpoints";
 
 import Profile from './components/Profile';
 import NotificationBell from './components/NotificationBell';
+import DepartmentSelect from './components/DepartmentSelect';
 import { Col, Container, Inline, Row } from "~/components";
 import { MenuOutlined } from '@ant-design/icons';
 import { Container as StyledContainer } from './styles';
@@ -24,6 +25,7 @@ function Main({ children }) {
                 fontSize: '1.5rem'
               }}
             />
+            <DepartmentSelect />
           </Col>
           {
             !breakpoints.xs && (

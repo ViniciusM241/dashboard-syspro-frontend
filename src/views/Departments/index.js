@@ -5,10 +5,10 @@ import getUsers from './services/getUsers';
 import getTotalUsers from './services/getTotalUsers';
 
 import UserDetails from './components/UserDetails';
-import { T1, Col, Inline, Table, Button } from '~/components';
+import { T1, Col, Inline, Table, Button, Box } from '~/components';
 import { Container } from './styles';
 
-function Home() {
+function Departments() {
   const navigate = useNavigate();
 
   const [filters, setFilters] = useState('');
@@ -31,6 +31,14 @@ function Home() {
     setIsEditing(false);
     setSelectedUserId(1);
   };
+
+  useEffect(() => {
+    _getUsers();
+  }, [filters]);
+
+  useEffect(() => {
+    _getTotalUsers();
+  }, []);
 
   const columns = useMemo(() => [
     {
@@ -77,14 +85,6 @@ function Home() {
     setFilters(query.join('&'));
   };
 
-  useEffect(() => {
-    _getUsers();
-  }, [filters]);
-
-  useEffect(() => {
-    _getTotalUsers();
-  }, []);
-
   return (
     <Container>
       <Col cols={12} className="mt-10">
@@ -95,29 +95,25 @@ function Home() {
       </Col>
       <Col cols={12} className="mt-10">
         <Inline>
-          <Table
-            data={users}
-            columns={columns}
-            onClickRow={onClickRow}
-            onFetchData={onFetchData}
-            maxPage={5}
-            total={totalUsers}
-          />
+          <Box style={{width: '100%'}}>
+            <Table
+              data={users}
+              columns={columns}
+              onClickRow={onClickRow}
+              onFetchData={onFetchData}
+              maxPage={5}
+              total={totalUsers}
+            />
+          </Box>
         </Inline>
       </Col>
       {
         selectedUserId && (
-          <UserDetails
-            userId={selectedUserId}
-            isEditing={isEditing}
-            searchUsers={_getUsers}
-            reset={setSelectedUserId}
-            className='mt-20'
-          />
+          <UserDetails userId={selectedUserId} isEditing={isEditing} className='mt-20' />
         )
       }
     </Container>
   );
 }
 
-export default Home;
+export default Departments;

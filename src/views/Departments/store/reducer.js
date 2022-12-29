@@ -8,21 +8,17 @@ const INITIAL_STATE = {
     name: '',
     email: '',
     isAdmin: '',
-    departments: [],
+    departmentId: '',
   },
-  departments: [],
-};
+}
 
 const beginLoading = combineActions(
-  types.GET_PROFILE,
-  types.GET_DEPARTMENTS,
+  types.GET_USER,
 );
 
 const stopLoading = combineActions(
-  types.GET_PROFILE_SUCCESS,
-  types.GET_PROFILE_FAIL,
-  types.GET_DEPARTMENTS_SUCCESS,
-  types.GET_DEPARTMENTS_FAIL,
+  types.GET_USER_SUCCESS,
+  types.GET_USER_FAIL,
 );
 
 const reducer = handleActions(
@@ -35,13 +31,9 @@ const reducer = handleActions(
       ...state,
       isLoading: false,
     }),
-    [types.GET_PROFILE_SUCCESS]: (state, { payload: { data } }) => ({
+    [types.GET_USER_SUCCESS]: (state, { payload: { data } }) => ({
       ...state,
       user: data,
-    }),
-    [types.GET_DEPARTMENTS_SUCCESS]: (state, { payload: { data } }) => ({
-      ...state,
-      departments: data,
     }),
   },
   INITIAL_STATE

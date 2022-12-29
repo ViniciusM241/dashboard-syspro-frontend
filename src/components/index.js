@@ -16,3 +16,6 @@ export const Box = React.lazy(() => import('./Box'));
 export const Radio = React.lazy(() => import('./Radio'));
 export const Check = React.lazy(() => import('./Check'));
 export const List = React.lazy(() => import('./List'));
+export const CheckGroup = React.lazy(() => import('./CheckGroup'));
+export const StyledError = React.lazy(() => import('./StyledError'));
+export const Select = React.lazy(() => import('./Select'));

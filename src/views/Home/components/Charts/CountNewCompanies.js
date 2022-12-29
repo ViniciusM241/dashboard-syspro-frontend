@@ -9,6 +9,9 @@ const options = {
   maintainAspectRatio: false,
   borderWidth: 0,
   plugins: {
+    datalabels: {
+      display: false,
+    },
     legend: {
       display: true,
       position: 'bottom',
