@@ -136,7 +136,7 @@ function UserDetails({ userId, isEditing=false, searchUsers, reset }) {
                   Departamentos:
                 </T2>
               </Col>
-              <Col className="mt-10" cols={12}>
+              <Col className="mt-10" cols={12} style={{ flexWrap: 'wrap' }}>
                 {
                   departments.map(department => (
                     <CheckGroup key={department.id} type="radio" name="departments" label={department.name} value={department.id} />

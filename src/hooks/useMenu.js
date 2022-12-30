@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { MdDashboard, MdPeopleAlt } from 'react-icons/md';
+import { MdDashboard, MdPeopleAlt, MdGroups } from 'react-icons/md';
 
 export default function () {
   const user = useSelector(state => state.profile.user);
@@ -20,6 +20,12 @@ export default function () {
         name: 'Usuários',
         to: '/usuarios',
         icon: MdPeopleAlt,
+      });
+
+      newMenu.push({
+        name: 'Departamentos',
+        to: '/departamentos',
+        icon: MdGroups,
       });
     }
 

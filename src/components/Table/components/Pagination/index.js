@@ -11,15 +11,20 @@ function Pagination({
   total,
 }) {
   const totalPage = Math.ceil(total / maxPage);
+  const maxToShow = 2;
+  let buttonsQty = [...Array(maxToShow).keys()];
 
-  if (pageIndex + 1 > totalPage) {
-    pageIndex = totalPage - 1;
+  if (totalPage < maxToShow) {
+    buttonsQty = [];
   }
 
-  const maxToShow = 2;
-  const plus = pageIndex + maxToShow >= totalPage ? pageIndex + maxToShow > totalPage ? maxToShow : pageIndex - 1 : 1;
-  const buttonsQty = [...Array(totalPage).keys()].map(x => x + plus);
+  if (totalPage > maxToShow) {
+    buttonsQty = [...Array(totalPage).keys()];
+  }
 
+  if (pageIndex + 1 > maxToShow) {
+    buttonsQty = buttonsQty.map(x => x + pageIndex - 1);
+  }
 
   const handleChangeIndex = (index) => {
     setFilters(state => ({
@@ -28,18 +33,16 @@ function Pagination({
     }));
   };
 
-  if (total < maxPage) return null;
-
   return (
     <Inline className="mt-20" center>
       {
-        pageIndex +1 >= maxToShow && (
+        pageIndex !== 0 && (
           <LeftOutlined
             style={{
               color: colors.LIGHT_BLUE,
               cursor: 'pointer',
             }}
-            onClick={() => handleChangeIndex(pageIndex)}
+            onClick={() => handleChangeIndex(pageIndex - 1)}
           />
         )
       }
@@ -48,7 +51,7 @@ function Pagination({
           <Button
             className="ml-10"
             key={index}
-            active={index === pageIndex + 1}
+            active={index === pageIndex}
             onClick={() => handleChangeIndex(index)}
           >
             {index + 1}
@@ -63,7 +66,7 @@ function Pagination({
         )
       }
       {
-        buttonsQty.length !== maxToShow && (
+        buttonsQty.length !== maxToShow && pageIndex + 1 !== totalPage && (
           <Button
             className="ml-10"
             active={pageIndex + 1 === totalPage}
@@ -74,7 +77,7 @@ function Pagination({
         )
       }
       {
-        pageIndex +1 < totalPage && buttonsQty.length !== maxToShow && (
+        pageIndex !== totalPage - 1 && (
           <RightOutlined
             className="ml-10"
             style={{

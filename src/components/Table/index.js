@@ -23,6 +23,13 @@ function Table({
   });
 
   useEffect(() => {
+    setFilters(state => ({
+      ...state,
+      pageIndex: 0,
+    }));
+  }, [total]);
+
+  useEffect(() => {
     onFetchData(filters);
   }, [filters]);
 

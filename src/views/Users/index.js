@@ -8,7 +8,7 @@ import UserDetails from './components/UserDetails';
 import { T1, Col, Inline, Table, Button } from '~/components';
 import { Container } from './styles';
 
-function Home() {
+function Users() {
   const navigate = useNavigate();
 
   const [filters, setFilters] = useState('');
@@ -17,15 +17,16 @@ function Home() {
   const [selectedUserId, setSelectedUserId] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
 
-  const _getUsers = async () => {
-    const users = await getUsers(filters);
-    setUsers(users);
-  };
-
   const _getTotalUsers = async () => {
     const totalUsers = await getTotalUsers(filters);
     setTotalUsers(totalUsers);
-  }
+  };
+
+  const _getUsers = async () => {
+    const users = await getUsers(filters);
+    await _getTotalUsers();
+    setUsers(users);
+  };
 
   const createNewUser = () => {
     setIsEditing(false);
@@ -120,4 +121,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default Users;

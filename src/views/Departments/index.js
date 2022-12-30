@@ -1,44 +1,37 @@
 import React, { useState, useMemo, useCallback, useEffect } from 'react';
 import moment from 'moment';
 import { useNavigate } from 'react-router-dom';
-import getUsers from './services/getUsers';
-import getTotalUsers from './services/getTotalUsers';
+import getDepartments from './services/getDepartments';
+import getTotalDepartments from './services/getTotalDepartments';
 
-import UserDetails from './components/UserDetails';
-import { T1, Col, Inline, Table, Button, Box } from '~/components';
+import DepartmentDetails from './components/DepartmentDetails';
+import { T1, Col, Inline, Table, Button } from '~/components';
 import { Container } from './styles';
 
 function Departments() {
   const navigate = useNavigate();
 
   const [filters, setFilters] = useState('');
-  const [users, setUsers] = useState([]);
-  const [totalUsers, setTotalUsers] = useState(0);
-  const [selectedUserId, setSelectedUserId] = useState(null);
+  const [departments, setDepartments] = useState([]);
+  const [totalDepartments, setTotalDepartments] = useState(0);
+  const [selectedDepartmentId, setSelectedDepartmentId] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
 
-  const _getUsers = async () => {
-    const users = await getUsers(filters);
-    setUsers(users);
+  const _getTotalDepartments = async () => {
+    const totalDepartments = await getTotalDepartments(filters);
+    setTotalDepartments(totalDepartments);
   };
 
-  const _getTotalUsers = async () => {
-    const totalUsers = await getTotalUsers(filters);
-    setTotalUsers(totalUsers);
-  }
+  const _getDepartments = async () => {
+    const departments = await getDepartments(filters);
+    await _getTotalDepartments();
+    setDepartments(departments);
+  };
 
-  const createNewUser = () => {
+  const createNewDepartment = () => {
     setIsEditing(false);
-    setSelectedUserId(1);
+    setSelectedDepartmentId(1);
   };
-
-  useEffect(() => {
-    _getUsers();
-  }, [filters]);
-
-  useEffect(() => {
-    _getTotalUsers();
-  }, []);
 
   const columns = useMemo(() => [
     {
@@ -53,24 +46,12 @@ function Departments() {
       label: 'Nome',
       accessor: 'name',
     },
-    {
-      label: 'E-mail',
-      accessor: 'email',
-    },
-    {
-      label: 'Tipo Perfil',
-      accessor: 'isAdmin',
-      value: (original, row) => {
-        if (row) return 'Administrador';
-        else return 'Usuário';
-      },
-    },
   ], [moment]);
 
   const onClickRow = useCallback((original, row) => {
     const id = row.id;
 
-    setSelectedUserId(id);
+    setSelectedDepartmentId(id);
     setIsEditing(true);
   }, [navigate]);
 
@@ -85,31 +66,43 @@ function Departments() {
     setFilters(query.join('&'));
   };
 
+  useEffect(() => {
+    _getDepartments();
+  }, [filters]);
+
+  useEffect(() => {
+    _getTotalDepartments();
+  }, []);
+
   return (
     <Container>
       <Col cols={12} className="mt-10">
-        <T1>Usuários</T1>
+        <T1>Departamentos</T1>
       </Col>
       <Col cols={12} className="mt-20">
-        <Button onClick={createNewUser}> Criar novo + </Button>
+        <Button onClick={createNewDepartment}> Criar novo + </Button>
       </Col>
       <Col cols={12} className="mt-10">
         <Inline>
-          <Box style={{width: '100%'}}>
-            <Table
-              data={users}
-              columns={columns}
-              onClickRow={onClickRow}
-              onFetchData={onFetchData}
-              maxPage={5}
-              total={totalUsers}
-            />
-          </Box>
+          <Table
+            data={departments}
+            columns={columns}
+            onClickRow={onClickRow}
+            onFetchData={onFetchData}
+            maxPage={5}
+            total={totalDepartments}
+          />
         </Inline>
       </Col>
       {
-        selectedUserId && (
-          <UserDetails userId={selectedUserId} isEditing={isEditing} className='mt-20' />
+        selectedDepartmentId && (
+          <DepartmentDetails
+            departmentId={selectedDepartmentId}
+            isEditing={isEditing}
+            searchDepartments={_getDepartments}
+            reset={setSelectedDepartmentId}
+            className='mt-20'
+          />
         )
       }
     </Container>
