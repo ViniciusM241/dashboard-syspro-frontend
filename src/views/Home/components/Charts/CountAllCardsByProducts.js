@@ -13,7 +13,7 @@ const options = {
       display: false,
     },
     legend: {
-      display: true,
+      display: false,
       position: 'bottom',
       align: 'center',
     },

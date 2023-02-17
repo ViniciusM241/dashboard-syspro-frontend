@@ -10,19 +10,16 @@ const INITIAL_STATE = {
     isAdmin: '',
     departments: [],
   },
-  departments: [],
+  selectedDepartment: '',
 };
 
 const beginLoading = combineActions(
   types.GET_PROFILE,
-  types.GET_DEPARTMENTS,
 );
 
 const stopLoading = combineActions(
   types.GET_PROFILE_SUCCESS,
   types.GET_PROFILE_FAIL,
-  types.GET_DEPARTMENTS_SUCCESS,
-  types.GET_DEPARTMENTS_FAIL,
 );
 
 const reducer = handleActions(
@@ -39,9 +36,9 @@ const reducer = handleActions(
       ...state,
       user: data,
     }),
-    [types.GET_DEPARTMENTS_SUCCESS]: (state, { payload: { data } }) => ({
+    [types.SET_DEPARTMENT]: (state, { payload: { data }}) => ({
       ...state,
-      departments: data,
+      selectedDepartment: data,
     }),
   },
   INITIAL_STATE

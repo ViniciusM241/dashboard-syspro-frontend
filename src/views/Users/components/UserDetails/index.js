@@ -6,6 +6,7 @@ import deleteUser from '../../services/deleteUser';
 import userSchema from '~/utils/validations/userSchema';
 import { getProfile } from '~/layout/Main/components/Profile/store/actions';
 import { useDispatch, useSelector } from 'react-redux';
+import { DepartmentsEnum } from '~/utils/enums';
 
 import {
   Box,
@@ -24,7 +25,6 @@ function UserDetails({ userId, isEditing=false, searchUsers, reset }) {
   const dispatch = useDispatch();
 
   const loggedUser = useSelector(store => store.profile.user);
-  const departments = useSelector(store => store.profile.departments);
   const [user, setUser] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [initialValues, setInitialValues] = useState({ name: '', email: '', isAdmin: false, token: '', departments: [] });
@@ -138,8 +138,8 @@ function UserDetails({ userId, isEditing=false, searchUsers, reset }) {
               </Col>
               <Col className="mt-10" cols={12} style={{ flexWrap: 'wrap' }}>
                 {
-                  departments.map(department => (
-                    <CheckGroup key={department.id} type="radio" name="departments" label={department.name} value={department.id} />
+                  Object.keys(DepartmentsEnum).map((department, index) => (
+                    <CheckGroup key={index} type="radio" name="departments" label={DepartmentsEnum[department].label} value={DepartmentsEnum[department].value} />
                   ))
                 }
               </Col>

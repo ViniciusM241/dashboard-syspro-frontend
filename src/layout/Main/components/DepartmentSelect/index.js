@@ -1,24 +1,25 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { DepartmentsEnum } from "~/utils/enums";
+import { setDepartment } from "../Profile/store/actions";
 
 import { Container } from './styles';
 
 function DepartmentSelect() {
-  const departments = useSelector(store => store.profile.departments);
+  const dispatch = useDispatch();
   const profileDepartments = useSelector(store => store.profile.user.departments);
-
-  const activeDepartments = departments.filter(x => profileDepartments.includes(x.id));
+  const selectedDepartment = useSelector(store => store.profile.selectedDepartment);
 
   const handleChange = (e) => {
-    console.log(e.target.value);
+    dispatch(setDepartment(e.target.value));
   };
 
   return (
-    <Container className="ml-10" onChange={handleChange}>
+    <Container className="ml-10" onChange={handleChange} defaultValue={selectedDepartment}>
       <option value={-1}>Syspro</option>
       {
-        activeDepartments.map(department => (
-          <option key={department.id} value={department.id}>{department.name}</option>
+        profileDepartments.map((department, index) => (
+          <option key={index} value={DepartmentsEnum[department].value}>{DepartmentsEnum[department].label}</option>
         ))
       }
     </Container>

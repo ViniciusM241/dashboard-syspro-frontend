@@ -22,7 +22,7 @@ function NavContainer() {
             <MenuContainer className="mt-20">
               {
                 menus.map((menu, index) => (
-                  <MenuItem key={index} menu={menu} className="mb-10" />
+                  <MenuItem key={index} menu={menu} />
                 ))
               }
             </MenuContainer>

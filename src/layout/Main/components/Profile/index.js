@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import useOutsideClick from "~/hooks/useOutsideClick";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { getProfile, getDepartments } from "./store/actions";
+import { getProfile } from "./store/actions";
 
 import { Container, Wrapper, Collapse, CollapseItem } from './styles';
 import profileImg from '~/assets/profile.png';
@@ -32,8 +32,7 @@ function Profile(props) {
 
   useEffect(() => {
     dispatch(getProfile());
-    dispatch(getDepartments());
-  }, [dispatch, getProfile, getDepartments]);
+  }, [dispatch, getProfile]);
 
   return (
     <Wrapper ref={wrapperRef}>

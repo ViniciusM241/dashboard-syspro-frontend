@@ -9,9 +9,11 @@ import DepartmentSelect from './components/DepartmentSelect';
 import { Col, Container, Inline, Row } from "~/components";
 import { MenuOutlined } from '@ant-design/icons';
 import { Container as StyledContainer } from './styles';
+import { useLocation } from "react-router-dom";
 
 function Main({ children }) {
   const dispatch = useDispatch();
+  const location = useLocation();
   const breakpoints = useBreakpoints();
 
   return (
@@ -25,7 +27,11 @@ function Main({ children }) {
                 fontSize: '1.5rem'
               }}
             />
-            <DepartmentSelect />
+            {
+              location.pathname.includes('home') ?
+                <DepartmentSelect />
+              : null
+            }
           </Col>
           {
             !breakpoints.xs && (

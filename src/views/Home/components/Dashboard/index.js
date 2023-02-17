@@ -1,45 +1,49 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import getReports from '../Charts/services/getReports';
+import { DepartmentsEnum } from '~/utils/enums';
+
+import PosVendasDashboard from './PosVendasDashboard';
+import DefaultDashboard from './DefaultDashboard';
 
 import { Wrapper } from './styles';
 
-import Box from '../Box';
-
-import Chart from '../Charts';
-
 function Dashboard() {
+  let Charts = null;
+  const selectedDepartment = useSelector(store => store.profile.selectedDepartment);
+
   const [reports, setReports] = useState({});
+  const [filters, setFilters] = useState({});
 
   const _getReports = async () => {
-    const reports = await getReports();
+    const reports = await getReports({
+      department: selectedDepartment,
+      filters,
+    });
 
     setReports(reports);
   };
 
   useEffect(() => {
     _getReports();
-  }, []);
+  }, [selectedDepartment, filters]);
 
+  switch (selectedDepartment) {
+    case DepartmentsEnum.POSVENDAS.value:
+      Charts = PosVendasDashboard;
+      break;
+    default:
+      Charts = DefaultDashboard;
+  }
   return (
     <Wrapper className='mt-10'>
-      <Box title='Empresas cadastradas' col={1} row={2}>
-        <Chart type='countAllCompanies' dataset={reports.countAllCompanies} />
-      </Box>
-      <Box title='Estabelecimentos cadastrados por mês' col={2} row={1}>
-        <Chart type='countEstablishments' dataset={reports.countEstablishments} />
-      </Box>
-      <Box title='Novas empresas' col={1} row={1}>
-        <Chart type='countNewCompanies' dataset={reports.countNewCompanies} />
-      </Box>
-      <Box title='Total de produtos' col={1} row={1}>
-        <Chart type='countAllCardsByProducts' dataset={reports.countAllCardsByProducts} />
-      </Box>
-      <Box title='Empresas positivando' col={1} row={2}>
-        <Chart type='listActiveCompanies' dataset={reports.listActiveCompanies} />
-      </Box>
-      <Box title='Empresas sem positivação' col={1} row={2}>
-        <Chart type='listLessActiveCompanies' dataset={reports.listLessActiveCompanies} />
-      </Box>
+      {
+        <Charts
+          reports={reports}
+          filters={filters}
+          setFilters={setFilters}
+        />
+      }
     </Wrapper>
   );
 }

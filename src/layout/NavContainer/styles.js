@@ -33,5 +33,4 @@ export const Container = styled.nav`
 
 export const MenuContainer = styled.div`
   width: 100%;
-  padding: 0 10px;
 `;

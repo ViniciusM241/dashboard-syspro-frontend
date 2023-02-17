@@ -13,7 +13,7 @@ const options = {
       display: false,
     },
     legend: {
-      display: true,
+      display: false,
       position: 'bottom',
       align: 'center',
     },
@@ -35,7 +35,9 @@ function CountNewCompanies ({ dataset, ...props }) {
     ],
   };
 
-  return <Pie options={options} data={data} />;
+  return (
+    <Pie options={options} data={data} />
+  );
 }
 
 export default CountNewCompanies;

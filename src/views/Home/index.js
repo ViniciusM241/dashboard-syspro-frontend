@@ -8,7 +8,7 @@ function Home() {
 
   return (
     <Container>
-      <Row>
+      <Row className="mt-10">
         <Col cols={12}>
           <T1>
             Dashboard
