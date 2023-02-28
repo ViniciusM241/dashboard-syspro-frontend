@@ -19,3 +19,4 @@ export const List = React.lazy(() => import('./List'));
 export const CheckGroup = React.lazy(() => import('./CheckGroup'));
 export const StyledError = React.lazy(() => import('./StyledError'));
 export const Select = React.lazy(() => import('./Select'));
+export const CountNumber = React.lazy(() => import('./CountNumber'));

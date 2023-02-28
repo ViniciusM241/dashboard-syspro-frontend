@@ -1,4 +1,5 @@
 import React from 'react';
+import { CountNumber } from '~/components';
 import Box from '../../Box';
 import Chart from '../../Charts';
 
@@ -24,6 +25,16 @@ function PosVendasDashboard({ reports, filters, setFilters }) {
         setFilters={setFilters}
       >
         <Chart type='listLessActiveCompanies' dataset={reports?.listLessActiveCompanies} />
+      </Box>
+      <Box
+        title='Empresas novas cadastradas'
+        col={1}
+        row={1}
+        filterType="month/year"
+        filters={filters}
+        setFilters={setFilters}
+      >
+        <CountNumber type="countNewCompaniesMonthYear" dataset={reports?.countNewCompaniesMonthYear} />
       </Box>
     </>
   );
