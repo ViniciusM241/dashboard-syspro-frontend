@@ -59,7 +59,7 @@ function Login() {
         <Box
           breakpoints={breakpoints}
         >
-          <T1> Entrar ONLINE </T1>
+          <T1> Entrar </T1>
           <T2 className="mt-10"> Entre com seu e-mail e senha </T2>
           <Form
             className="mt-20"
