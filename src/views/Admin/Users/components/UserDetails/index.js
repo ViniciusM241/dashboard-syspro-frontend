@@ -20,6 +20,7 @@ import {
   Button,
   StyledError,
 } from '~/components';
+import { toast } from 'react-toastify';
 
 function UserDetails({ userId, isEditing=false, searchUsers, reset }) {
   const dispatch = useDispatch();
@@ -43,12 +44,15 @@ function UserDetails({ userId, isEditing=false, searchUsers, reset }) {
     setIsLoading(false);
 
     if (success) {
+      toast.success("Usuário criado com sucesso");
       searchUsers();
       reset(null);
 
       if (loggedUser.id === user.id) {
         dispatch(getProfile());
       }
+    } else {
+      toast.error("Erro ao criar usuário");
     }
   };
 

@@ -12,12 +12,12 @@ function CheckInput ({ label, onChange, values, styled, ...props }) {
         {...props}
         type="checkbox"
         name={props?.name}
-        id={props.value}
+        id={props?.name + props?.value}
         checked={values?.[props.name]}
         onChange={handleOnChange}
         styled={styled}
       />
-      <StyledLabel htmlFor={props?.value} styled={styled}>
+      <StyledLabel htmlFor={props?.name + props?.value} styled={styled}>
         {label}
       </StyledLabel>
     </Container>

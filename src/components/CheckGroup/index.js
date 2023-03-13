@@ -1,7 +1,20 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Container, StyledInput, StyledLabel } from './styles';
 
 function CheckGroup ({ label, onChange, values, styled, ...props }) {
+  useEffect(() => {
+    let newState = values?.[props.name];
+
+    if (props.checked) {
+      if (values?.[props.name].includes(props.value)) return;
+      newState.push(props.value);
+    } else {
+      newState = newState.filter(x => x !== props.value);
+    }
+
+    onChange(null, state => ({ ...state, [props?.name]: newState }))
+  }, [props.checked]);
+
   const handleOnChange = (e) => {
     let newState = values?.[props.name];
 
