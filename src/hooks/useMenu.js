@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { MdDashboard, MdPeopleAlt } from 'react-icons/md';
+import { MdDashboard, MdPeopleAlt, MdNotifications } from 'react-icons/md';
 
 export default function () {
   const user = useSelector(state => state.profile.user);
@@ -18,8 +18,13 @@ export default function () {
     if (user.isAdmin) {
       newMenu.push({
         name: 'Usuários',
-        to: '/usuarios',
+        to: '/admin/usuarios',
         icon: MdPeopleAlt,
+      });
+      newMenu.push({
+        name: 'Notificações',
+        to: '/admin/notificacoes',
+        icon: MdNotifications,
       });
     }
 

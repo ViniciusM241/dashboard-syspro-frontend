@@ -89,7 +89,7 @@ function Users() {
   return (
     <Container>
       <Col cols={12} className="mt-10">
-        <T1>Usuários</T1>
+        <T1>Gerenciar usuários</T1>
       </Col>
       <Col cols={12} className="mt-20">
         <Button onClick={createNewUser}> Criar novo + </Button>

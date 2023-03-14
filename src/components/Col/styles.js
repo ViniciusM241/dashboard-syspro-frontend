@@ -10,7 +10,9 @@ export const StyledCol = styled.div`
   display: flex;
   align-items: center;
 
-  width: ${props => calcWidth(props.cols)}%;
+  width: calc(${props => calcWidth(props.cols)}% - 20px);
+  margin-right: 10px;
+  margin-left: 10px;
 
   /* background-color: yellow; */
 `;

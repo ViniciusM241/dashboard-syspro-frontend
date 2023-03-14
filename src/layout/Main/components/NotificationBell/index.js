@@ -12,6 +12,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getNotifications } from "../Profile/store/actions";
 import viewNotifications from "./services/viewNotifications";
+import getDateDiff from "~/utils/getDateDiff";
 
 function NotificationBell() {
   const navigate = useNavigate();
@@ -91,7 +92,10 @@ function NotificationBell() {
                 filteredNotifications.length ?
                 filteredNotifications.map((notification, index) => (
                   <CollapseItem key={index} onClick={() => handleNotificationClick(notification)}>
-                    <p className="title">{notification.title}</p>
+                    <div style={{display: 'flex', justifyContent: 'space-between', width: '100%'}}>
+                      <p className="title">{notification.title}</p>
+                      <p className="date">{getDateDiff(notification.createdAt)}</p>
+                    </div>
                     <p className="message">{notification.message}</p>
                   </CollapseItem>
                 ))

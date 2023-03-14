@@ -11,13 +11,9 @@ function Input({
         {label}
         <StyledInput {...props} />
       </StyledLabel>
-      {
-        props.error && !props.disabled && (
-          <StyledError>
-            {props.error}
-          </StyledError>
-        )
-      }
+      <StyledError error={props.error && !props.disabled}>
+        {props.error || <>&nbsp;</>}
+      </StyledError>
     </div>
   );
 }
