@@ -2,9 +2,9 @@ import styled from "styled-components";
 
 export const StyledRow = styled.div`
   width: 100%;
-  display: inline-flex;
+  display: flex;
   flex-wrap: wrap;
-  align-items: center;
+  align-items: flex-start;
 
   /* background-color: green; */
 `;

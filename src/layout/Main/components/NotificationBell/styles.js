@@ -93,15 +93,19 @@ export const CollapseItem = styled.div`
     border-left-width: 5px;
   }
 
-  > .title, > .message {
+  .title, > .message {
     display: -webkit-box;
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
 
-  > .title {
+  .title {
     font-weight: bold;
     -webkit-line-clamp: 1;
+  }
+
+  .date {
+    font-size: 12px;
   }
 
   > .message {
