@@ -12,7 +12,7 @@ const GlobalStyle = createGlobalStyle`
     font-weight: 400;
     font-size: 1rem;
     font-family: 'IBM Plex Sans', sans-serif;
-    overflow: hidden;
+    overflow-y: scroll;
   }
 
   /* width */
