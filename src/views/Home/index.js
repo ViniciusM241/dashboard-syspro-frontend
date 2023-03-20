@@ -11,7 +11,7 @@ function Home() {
       <Row className="mt-10">
         <Col cols={12}>
           <T1>
-            Dashboard
+            Dashboardd
           </T1>
         </Col>
       </Row>
