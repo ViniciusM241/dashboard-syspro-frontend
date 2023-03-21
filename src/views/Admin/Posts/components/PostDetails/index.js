@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
+import titelize from '~/utils/titelize';
 import getPostById from '../../services/getPostById';
 import createPost from '../../services/createPost';
 import updatePost from '../../services/updatePost';
@@ -125,7 +126,7 @@ function PostDetails({ postId, isEditing=false, searchPosts, reset }) {
                 </T2>
                 {
                   postId && isEditing ? (
-                    <a className='ml-20' href={`/dashboard/posts/${postId}/title`} target="_blank" rel="noreferrer"> Ir para página</a>
+                    <a className='ml-20' href={`/dashboard/posts/${postId}/${titelize(post.title)}`} target="_blank" rel="noreferrer"> Ir para página</a>
                   ) : <></>
                 }
               </Col>
