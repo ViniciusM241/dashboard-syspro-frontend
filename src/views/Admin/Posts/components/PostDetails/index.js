@@ -136,6 +136,9 @@ function PostDetails({ postId, isEditing=false, searchPosts, reset }) {
                 <Input type="text" name="subtitle" label="Subtítulo" placeholder="Subtítulo" />
               </Col>
               <Col className="mt-10" cols={12}>
+                <Input type="text" name="thumbnailUrl" label="URL imagem do banner" placeholder="A URL aqui" />
+              </Col>
+              <Col className="mt-10" cols={12}>
                 <T3>Conteúdo</T3>
               </Col>
               <Col className="mt-10" cols={12}>

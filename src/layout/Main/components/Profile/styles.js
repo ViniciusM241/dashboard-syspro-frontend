@@ -10,6 +10,7 @@ export const Container = styled.div`
   background-position: center;
   background-size: cover;
   background-color: black;
+  border: 3px solid ${colors.NOTIFICATIONS_COUNT};
   cursor: pointer;
 
   position: relative;
