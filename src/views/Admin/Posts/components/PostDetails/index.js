@@ -126,7 +126,7 @@ function PostDetails({ postId, isEditing=false, searchPosts, reset }) {
                 </T2>
                 {
                   postId && isEditing ? (
-                    <a className='ml-20' href={`/dashboard/posts/${postId}/${titelize(post.title)}`} target="_blank" rel="noreferrer"> Ir para página</a>
+                    <a className='ml-20' href={`/dashboard/posts/${postId}/${titelize(post?.title || "titulo")}`} target="_blank" rel="noreferrer"> Ir para página</a>
                   ) : <></>
                 }
               </Col>
