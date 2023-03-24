@@ -11,7 +11,7 @@ import { MdLogout, MdPerson } from 'react-icons/md';
 const menus = [
   {
     name: 'Perfil',
-    to: '/perfil',
+    to: '/meu-perfil',
     icon: MdPerson,
   },
   {

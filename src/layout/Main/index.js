@@ -19,7 +19,7 @@ function Main({ children }) {
   return (
     <StyledContainer>
       <Container>
-        <Row>
+        <Row style={{alignItems: 'center'}}>
           <Col cols={10} xs={12}>
             <MenuOutlined
               onClick={() => dispatch(changeNavStatus())}
