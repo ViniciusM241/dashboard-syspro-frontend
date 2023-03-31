@@ -4,9 +4,9 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { getProfile } from "./store/actions";
 
-import { Container, Wrapper, Collapse, CollapseItem } from './styles';
-import profileImg from '~/assets/profile.png';
+import { Wrapper, Collapse, CollapseItem } from './styles';
 import { MdLogout, MdPerson } from 'react-icons/md';
+import { ProfileImg } from '~/components';
 
 const menus = [
   {
@@ -36,9 +36,9 @@ function Profile(props) {
 
   return (
     <Wrapper ref={wrapperRef}>
-      <Container
+      <ProfileImg
         {...props}
-        img={profileImg}
+        className="ml-10"
         onClick={() => setIsOpened(!isOpened)}
       />
       {

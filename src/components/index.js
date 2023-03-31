@@ -20,3 +20,5 @@ export const CheckGroup = React.lazy(() => import('./CheckGroup'));
 export const StyledError = React.lazy(() => import('./StyledError'));
 export const Select = React.lazy(() => import('./Select'));
 export const CountNumber = React.lazy(() => import('./CountNumber'));
+export const ProfileImg = React.lazy(() => import('./ProfileImg'));
+export const ModalCropImage = React.lazy(() => import('./ModalCropImage'));

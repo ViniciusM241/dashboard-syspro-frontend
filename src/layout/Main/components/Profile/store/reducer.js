@@ -8,6 +8,7 @@ const INITIAL_STATE = {
     name: '',
     email: '',
     isAdmin: '',
+    imgUrl: null,
     departments: [],
   },
   selectedDepartment: '',

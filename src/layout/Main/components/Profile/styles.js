@@ -1,22 +1,6 @@
 import styled from "styled-components";
 import colors from "~/utils/colors";
 
-export const Container = styled.div`
-  width: 50px;
-  height: 50px;
-
-  border-radius: 25px;
-  background-image: url(${props => props.img});
-  background-position: center;
-  background-size: cover;
-  background-color: black;
-  border: 3px solid ${colors.NOTIFICATIONS_COUNT};
-  cursor: pointer;
-
-  position: relative;
-  z-index: 10;
-`;
-
 export const Wrapper = styled.div`
   position: relative;
 `;

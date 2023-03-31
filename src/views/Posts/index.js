@@ -9,7 +9,6 @@ import {
   Banner,
   Subtitle,
 } from './styles';
-import profileImg from '~/assets/profile.png';
 
 import {
   Container,
@@ -52,7 +51,7 @@ function Posts() {
             <Author>
               <ProfileImg
                 className="mr-10"
-                img={profileImg}
+                img={post?.user?.imgUrl}
               />
               <div>
                 <p className="name">{post?.user?.name} {`<${post?.user?.email}>`}</p>

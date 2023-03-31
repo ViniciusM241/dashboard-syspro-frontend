@@ -3,4 +3,6 @@ import createTypes from "~/utils/createTypes";
 
 export default createTypes('NAVBAR', [
   'CHANGE_NAV_STATUS',
+  'SET_MODAL_CLOSED',
+  'SET_MODAL_OPENED',
 ]);

@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+import styled from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -74,6 +75,15 @@ const GlobalStyle = createGlobalStyle`
 
   .mr-20 {
     margin-right: 20px;
+  }
+
+  .modal {
+  z-index: 1050;
+  position: absolute;
+  margin: 0 auto;
+  top: 100px;
+  left: 0;
+  right: 0;
   }
 `;
 

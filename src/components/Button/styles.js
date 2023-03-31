@@ -21,4 +21,14 @@ export const StyledButton = styled.button`
     border: 2px solid ${colors.LIGHT_BLUE};
     color: ${colors.LIGHT_BLUE};
   }
+
+  &:disabled {
+    opacity: .6;
+    cursor: default;
+
+    &:hover {
+      background-color: ${colors.BACKGROUND};
+      border: 2px solid transparent;
+    }
+  }
 `;
