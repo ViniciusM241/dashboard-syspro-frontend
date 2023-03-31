@@ -44,7 +44,7 @@ function UserDetails({ userId, isEditing=false, searchUsers, reset }) {
     setIsLoading(false);
 
     if (success) {
-      toast.success("Usuário criado com sucesso");
+      toast.success(`Usuário ${isEditing ? "alterado" : "criado"} com sucesso`);
       searchUsers();
       reset(null);
 
@@ -52,7 +52,7 @@ function UserDetails({ userId, isEditing=false, searchUsers, reset }) {
         dispatch(getProfile());
       }
     } else {
-      toast.error("Erro ao criar usuário");
+      toast.error(`Erro ao ${isEditing ? "alterar" : "criar"} usuário`);
     }
   };
 
