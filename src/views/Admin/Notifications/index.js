@@ -43,7 +43,7 @@ function Notifications () {
     delete data.allUsers;
 
     setIsLoading(true);
-
+    console.log(data)
     const success = await createNotification(data);
 
     if (success) {
@@ -83,6 +83,7 @@ function Notifications () {
             to: [],
             allDepartments: false,
             allUsers: false,
+            sendEmail: false,
           }}
           onSubmit={handleSubmit}
           validationSchema={notificationSchema}
@@ -101,6 +102,16 @@ function Notifications () {
                 <Col className="mt-10" cols={12}>
                   <Input type="text" name="message" placeholder="Digite a mensagem" label="Mensagem" />
                 </Col>
+                <Col cols={12}>
+                  <Check name="sendEmail" label="Notificar por e-mail também" type="radio" value="true" />
+                </Col>
+                {
+                  errors.sendEmail ? (
+                    <Col cols={12}>
+                      <StyledError className="mt-10">{errors.sendEmail}</StyledError>
+                    </Col>
+                  ) : <></>
+                }
                 <Col cols={12} className="mt-20 mb-20">
                   <T3>Redirecionamento</T3>
                 </Col>

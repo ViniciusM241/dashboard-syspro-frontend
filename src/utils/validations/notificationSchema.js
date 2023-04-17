@@ -9,6 +9,7 @@ const schema = Joi.object().keys({
   allDepartments: Joi.boolean().label('Todos departamentos').messages(messages),
   departments: Joi.array().required().min(1).label('Departamento').messages(messages),
   to: Joi.array().required().min(1).label('Usuário').messages(messages),
+  sendEmail: Joi.boolean().label('Enviar e-mail').messages(messages),
 });
 
 export default schema;

@@ -24,7 +24,7 @@ function Form({
 
   const handleValidation = () => {
     const res = validationSchema.validate(values, { abortEarly: false });
-
+    console.log(res.error)
     if (res.error) {
       let errorsList = {};
 
@@ -51,7 +51,7 @@ function Form({
 
     if (validationSchema) {
       const isValid = handleValidation();
-
+      console.log(isValid)
       if (!isValid) return;
     }
 
