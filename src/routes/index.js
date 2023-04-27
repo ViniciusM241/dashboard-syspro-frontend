@@ -5,6 +5,7 @@ import adminRoutes from '~/views/Admin/routes';
 import notificationRoutes from '~/views/Notifications/routes';
 import postsRoutes from '~/views/Posts/routes';
 import profileRoutes from '~/views/EditProfile/routes';
+import supportRoutes from '~/views/Support/routes';
 
 const routes = [
   ...loginRoutes,
@@ -14,6 +15,7 @@ const routes = [
   ...notificationRoutes,
   ...postsRoutes,
   ...profileRoutes,
+  ...supportRoutes,
 ];
 
 export default routes;

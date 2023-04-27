@@ -1,6 +1,14 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { MdDashboard, MdPeopleAlt, MdNotifications, MdPostAdd } from 'react-icons/md';
+import {
+  MdDashboard,
+  MdPeopleAlt,
+  MdNotifications,
+  MdPostAdd,
+  MdHistory,
+} from 'react-icons/md';
+
+import { DepartmentsEnum } from "~/utils/enums";
 
 export default function () {
   const user = useSelector(state => state.profile.user);
@@ -30,6 +38,14 @@ export default function () {
         name: 'Postagens',
         to: '/admin/posts',
         icon: MdPostAdd,
+      });
+    }
+
+    if (user.departments.includes(DepartmentsEnum.SUPORTE.value)) {
+      newMenu.push({
+        name: 'Migração BIN ISO',
+        to: '/suporte/migracao',
+        icon: MdHistory,
       });
     }
 

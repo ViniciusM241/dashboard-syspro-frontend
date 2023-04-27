@@ -7,6 +7,10 @@ const values = {
     value: 'ADMIN',
     label: 'Administrativo',
   },
+  'SUPORTE': {
+    value: 'SUPORTE',
+    label: 'Suporte',
+  },
 };
 
 export default values;
