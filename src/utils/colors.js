@@ -10,4 +10,5 @@ export default {
   'NOTIFICATIONS_COUNT': '#FCD647',
   'RED': '#A50000',
   'RED_30': '#A50000',
+  'PROGRESS_GREEN': '#54C112',
 };

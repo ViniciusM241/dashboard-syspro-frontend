@@ -15,6 +15,7 @@ function MenuItem({ menu, ...props }) {
     <Container
       onClick={() => navigate(menu.to)}
       selected={menu.to === location.pathname}
+      navbarStatus={navbarStatus}
       {...props}
     >
       {

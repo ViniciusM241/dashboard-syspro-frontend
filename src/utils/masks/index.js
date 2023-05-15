@@ -41,3 +41,13 @@ export function currency(value) {
 
   return value;
 }
+
+export function capitalizeName(name) {
+  if (!name) return '';
+
+  const lowerName = name.toLowerCase();
+  const words = lowerName.split(/ /);
+  const capitalizedName = words.reduce((phrase, word) => `${phrase} ${word[0].toUpperCase() + word.substring(1)}`, []);
+
+  return capitalizedName;
+}

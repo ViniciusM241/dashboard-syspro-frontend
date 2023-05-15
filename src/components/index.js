@@ -22,3 +22,4 @@ export const Select = React.lazy(() => import('./Select'));
 export const CountNumber = React.lazy(() => import('./CountNumber'));
 export const ProfileImg = React.lazy(() => import('./ProfileImg'));
 export const ModalCropImage = React.lazy(() => import('./ModalCropImage'));
+export const ProgressBar = React.lazy(() => import('./ProgressBar'));

@@ -7,7 +7,7 @@ export const Container = styled.div`
 
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: ${props => props.navbarStatus === 'opened' ? "flex-start" : "center"};
 
   ${props => props.selected && `background-color: ${colors.MENU_ITEM_SELECTED};`}
 
