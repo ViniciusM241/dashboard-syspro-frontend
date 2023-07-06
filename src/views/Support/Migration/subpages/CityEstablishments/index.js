@@ -120,6 +120,9 @@ function CityEstablishments() {
               <Col cols={12}>
                 <T3 className="mb-10">Quantidades de ECs na cidade? <strong>{cityPlan.qtyEstablishments}</strong></T3>
               </Col>
+              <Col cols={12}>
+                <T3 className="mb-20">Quantidade de ECs com vendas (ativos)? <strong>{cityPlan.activeEstablishments}</strong></T3>
+              </Col>
               <Col cols={12} className="mb-20">
                 <Inline>
                   {
@@ -134,9 +137,6 @@ function CityEstablishments() {
                     /> : ''
                   }
                 </Inline>
-              </Col>
-              <Col cols={12}>
-                <T3 className="mb-20">Quantidade de ECs com vendas (ativos)? <strong>{cityPlan.activeEstablishments}</strong></T3>
               </Col>
               <Col cols={12}>
                 <T3 className="mb-20">Possui Redes grandes? <strong>{cityPlan.hasNetworks ? 'Sim' : 'Não'}</strong></T3>
@@ -161,6 +161,9 @@ function CityEstablishments() {
               <Col cols={12}>
                 <T3 className="mb-20">Quantidades de ECs? <strong>{cityPlan.outsideQtyEstablishments}</strong></T3>
               </Col>
+              <Col cols={12}>
+                <T3 className="mb-20">Quantidades de ECs com vendas (ativos)? <strong>{cityPlan.outsideActiveEstablishments}</strong></T3>
+              </Col>
               <Col cols={12} className="mb-20">
                 <Inline>
                   {
@@ -177,7 +180,7 @@ function CityEstablishments() {
                 </Inline>
               </Col>
               <Col cols={12}>
-                <T3 className="mb-20">Possui Redes grandes? <strong>{cityPlan.hasNetworks ? 'Sim' : 'Não'}</strong></T3>
+                <T3 className="mb-20">Possui Redes grandes? <strong>{cityPlan.outsideHasNetworks ? 'Sim' : 'Não'}</strong></T3>
               </Col>
               {
                 cityPlan.outsideHasNetworks ? (
