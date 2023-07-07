@@ -46,6 +46,17 @@ function CityEstablishments() {
       },
     },
     {
+      label: 'Meio de captura',
+      accessor: 'capt',
+      value: (original, row) => {
+        if (row != null) {
+          return row.description;
+        } else {
+          return '-'
+        }
+      },
+    },
+    {
       label: 'Rede',
       accessor: 'networkName',
       value: (original, row) => {
@@ -62,6 +73,17 @@ function CityEstablishments() {
     {
       label: 'Fantasia',
       accessor: 'companyName',
+    },
+    {
+      label: 'Meio de captura',
+      accessor: 'capt',
+      value: (original, row) => {
+        if (row != null && row.description != null) {
+          return row.description;
+        } else {
+          return '-'
+        }
+      },
     },
     {
       label: 'Rede',
