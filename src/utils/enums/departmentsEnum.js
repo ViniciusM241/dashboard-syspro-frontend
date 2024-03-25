@@ -3,13 +3,13 @@ const values = {
     value: 'POSVENDAS',
     label: 'Pós-Vendas',
   },
-  'ADMIN': {
-    value: 'ADMIN',
-    label: 'Administrativo',
-  },
   'SUPORTE': {
     value: 'SUPORTE',
     label: 'Suporte',
+  },
+  'SYSPRO_PAY': {
+    value: 'SYSPRO_PAY',
+    label: 'Syspro Pay',
   },
 };
 

@@ -7,7 +7,7 @@ const schema = Joi.object().keys({
   token: Joi.string().required().label('Senha').min(8).messages(messages),
   email: Joi.string().required().label('E-mail').messages(messages),
   isAdmin: Joi.boolean().required().label('É Administrador?').messages(messages),
-  departments: Joi.array().required().min(1).label('Departamento').messages(messages),
+  departments: Joi.array().label('Departamento').messages(messages),
   imgUrl: Joi.string().allow(null).label('Imagem de parfil').messages(messages),
 });
 

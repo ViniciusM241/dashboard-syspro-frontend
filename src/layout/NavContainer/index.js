@@ -7,6 +7,7 @@ import logo from '~/assets/logo.png';
 import MenuItem from './components/MenuItem';
 
 import { Container, MenuContainer } from './styles'
+import colors from "~/utils/colors";
 
 function NavContainer() {
   const breakpoints = useBreakpoints();
@@ -21,8 +22,19 @@ function NavContainer() {
             <img src={logo} />
             <MenuContainer className="mt-20">
               {
-                menus.map((menu, index) => (
-                  <MenuItem key={index} menu={menu} />
+                menus.map((menuGroup, index) => (
+                  <div key={index} className="mb-20">
+                    {
+                      menuGroup.title && (
+                        <p style={{ color: colors.MENU_ITEM_COLOR, paddingLeft: '5px' }}>{menuGroup.title}</p>
+                      )
+                    }
+                    {
+                      menuGroup.menus.map((menu, index) => (
+                        <MenuItem key={index} menu={menu} />
+                      ))
+                    }
+                  </div>
                 ))
               }
             </MenuContainer>
